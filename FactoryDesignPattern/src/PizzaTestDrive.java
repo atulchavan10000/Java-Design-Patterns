@@ -1,7 +1,7 @@
-import abstractClasses.Pizza;
-import abstractClasses.PizzaStore;
-import franchisePizzaStores.ChicagoPizzaStore;
-import franchisePizzaStores.NYPizzaStore;
+import creatorClasses.ChicagoPizzaStore;
+import creatorClasses.NYPizzaStore;
+import creatorClasses.PizzaStore;
+import products.Pizza;
 
 public class PizzaTestDrive {
 	public static void main(String[] args) {

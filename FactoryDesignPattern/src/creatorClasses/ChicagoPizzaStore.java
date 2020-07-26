@@ -1,8 +1,12 @@
-package franchisePizzaStores;
-import abstractClasses.Pizza;
-import abstractClasses.PizzaStore;
-import chicagoStylePizza.ChicagoStyleCheesePizza;
+package creatorClasses;
+import products.ChicagoStyleCheesePizza;
+import products.Pizza;
 
+
+//createPizza method is factory method which will create objects (products),
+//clases that produce products are called concrete creators,
+//so this class is a concrete creator
+//Concrete creators can encapsulate the knowledge about the products it creates
 public class ChicagoPizzaStore extends PizzaStore{
 	
 	//we need to implement createPizza(), since it is abstract in PizzaStore
