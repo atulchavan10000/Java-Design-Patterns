@@ -13,12 +13,16 @@ public class WeatherData implements Subject{
 	public WeatherData() {
 		observers = new ArrayList<Observer>();
 	}
-
+	
+	// when an observer registers, we
+	// just add it to the end of the list
 	@Override
 	public void registerObserver(Observer o) {
 		observers.add(o);		
 	}
-
+	
+	// likewise, when an observer wants to
+	// unregister, we just take it off the list
 	@Override
 	public void removeObserver(Observer o) {
 		int i = observers.indexOf(o);
@@ -27,6 +31,11 @@ public class WeatherData implements Subject{
 		}
 	}
 
+	// this is where we tell all the
+	// observers about the state. 
+	// because they are all observers,
+	// we know they all implement update(),
+	// so we know how to notify them.
 	@Override
 	public void notifyObservers() {
 		for(Observer observer : observers) {
@@ -34,6 +43,9 @@ public class WeatherData implements Subject{
 		}
 	}
 	
+	// we notify the observers when we
+	// get updated measurements from
+	// the weather station.
 	public void measurementsChanged() {
 		notifyObservers();
 	}
