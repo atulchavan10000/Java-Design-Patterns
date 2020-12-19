@@ -19,6 +19,8 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement{
 	// weatherData object(the Subject)
 	// and we use it to register the
 	// display as an observer
+	// this passing of one object(WeatherData) and getting it into
+	// another object(Subject) is composition
 	public CurrentConditionsDisplay(Subject weatherData) {
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
