@@ -1,16 +1,23 @@
 import java.util.Iterator;
 public class Waitress {
-	PancakeHouseMenu pancakeHouseMenu;
-	DinerMenu dinerMenu;
 	
-	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
+	/* The PancakeHouseMenu and DinerMenu classes implement an interface, Menu
+	 * Waitress can refer to each menu object using the interface rather than 
+	 * the concrete class. So, we're reducing the dependency between the Waitress
+	 * and the concrete classes by "programming to an interface, not an implementation"
+	 * This solves the problem of Waitress depending on the concrete Menus.
+	 * */
+	Menu pancakeHouseMenu;
+	Menu dinerMenu;
+	
+	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
 		this.pancakeHouseMenu = pancakeHouseMenu;
 		this.dinerMenu = dinerMenu;
 	}
 	
 	public void printMenu() {
-		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
-		Iterator dinerIterator = dinerMenu.createIterator();
+		Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
+		Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
 		
 		System.out.println("MENU\n----\nBREAKFAST");
 		printMenu(pancakeIterator);
