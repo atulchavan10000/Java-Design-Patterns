@@ -1,3 +1,4 @@
+import java.util.Iterator;
 
 public class DinerMenuIterator implements Iterator {
 	MenuItem[] items;
@@ -34,5 +35,38 @@ public class DinerMenuIterator implements Iterator {
 		position++;
 		return menuItem;
 	}
+	
+	/* Since the chef is using a fixed-size Array, we just shift all the 
+	 * elements up one and make the last element null, when remove() is called
+	 * */
+	public void remove() {
+		if(position <= 0) {
+			throw new IllegalStateException
+				("You cant remove an item until you've done at least one next()");
+		}
+		if(items[position - 1] != null) {
+			for(int i = position - 1; i < items.length - 1; i++) {
+				items[i] = items[i + 1];
+			}
+			items[items.length - 1] = null;
+		}
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
